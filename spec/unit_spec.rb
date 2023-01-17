@@ -46,21 +46,18 @@ describe MultiplicationTable do
 end
 
 describe PrimeGenerator do
-  describe ".print output" do
+  describe ".generate sequence for n = 2" do
     context "given input of 2" do
-      it "returns 2" do
-        primeGenerator = PrimeGenerator.new()
-        expect(primeGenerator.generate(2)).to eq(2)
-      end
-    end
-  end
-
-  describe ".print output" do
-    context "given input of 3" do
       it "returns [2, 3]" do
         primeGenerator = PrimeGenerator.new()
+        expect(primeGenerator.generate(2)).to eq([2, 3])
+      end
+    end
+    context "given input of 3" do
+      it "returns [2, 3, 5]" do
+        primeGenerator = PrimeGenerator.new()
         primeGenerator.loadPrimes()
-        expect(primeGenerator.generate(3)).to eq([2,3])
+        expect(primeGenerator.generate(3)).to eq([2,3, 5])
       end
     end
   end

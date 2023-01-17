@@ -20,7 +20,9 @@ class MultiplicationTable
 
    def buildTableString()
       @cell_size = cellSize()
+      # Adds the first row, which is the list of prime numbers passed in to initialize the table.
       table = "|" + " "* @cell_size + "|#{@numbers.map { |n| printNumberWithWhitespace(n)}.join("|")}|"
+
       for row_prime in @numbers do
          # add new row to multiplication table
          table += "\n|#{printNumberWithWhitespace(row_prime)}|"
@@ -32,6 +34,7 @@ class MultiplicationTable
             prime_index = prime_index + 1
          end
       end
+
       return table
    end
 
