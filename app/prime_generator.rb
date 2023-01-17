@@ -5,6 +5,7 @@ class PrimeGenerator
    # The prime number sieve works by way of elimination, which means that first, the pool must be defined and then numbers
    # are excluded from the pool. The pool or batch size will be calculated based on n that is input, up to this number,
    # max_batch_size. If the calculation of batch size based on n exceeds this number, the results will be paginated.
+   # Pagination hasn't actually been done though ...
    @@max_batch_size = 1000
 
    # Returns the updated primes array. Return can be ignored and is only
@@ -50,8 +51,8 @@ class PrimeGenerator
    end
 
    def getSieveBatchSize(n)
-      # Naive estimate.
-      return n*n
+      best_estimate = n*n
+      return best_estimate > @@max_batch_size ? @@max_batch_size : best_estimate
    end
 
    def filterMultiplesFromSieve(prime, sieve)
