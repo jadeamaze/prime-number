@@ -57,7 +57,14 @@ describe PrimeGenerator do
       it "returns [2, 3, 5]" do
         primeGenerator = PrimeGenerator.new()
         primeGenerator.loadPrimes()
-        expect(primeGenerator.generate(3)).to eq([2,3, 5])
+        expect(primeGenerator.generate(3)).to eq([2, 3, 5])
+      end
+    end
+    context "given input of 10" do
+      it "returns [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]" do
+        primeGenerator = PrimeGenerator.new()
+        primeGenerator.loadPrimes()
+        expect(primeGenerator.generate(10)).to eq([2, 3, 5, 7, 11, 13, 17, 19, 23, 29])
       end
     end
   end

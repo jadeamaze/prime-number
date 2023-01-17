@@ -55,10 +55,10 @@ class PrimeGenerator
    end
 
    def filterMultiplesFromSieve(prime, sieve)
-      i = prime*2
+      i = prime*3
       while i < sieve.length
          sieve[i] = @@NOT_PRIME
-         i += i
+         i += prime*2
       end
    end
 end
