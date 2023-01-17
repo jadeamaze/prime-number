@@ -1,11 +1,12 @@
 class PrimeGenerator
+
+   # Returns the updated primes array. Return can be ignored and is only
+   # included for testing purposes (currently).
    def loadPrimes()
       primeFile = File.open("resources/primes.data")
       @primes = primeFile.read
       primeFile.close
-   end
 
-   def testJade()
       return @primes
    end
 

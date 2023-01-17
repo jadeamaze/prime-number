@@ -1,11 +1,12 @@
 class MultiplicationTable
-   def initialize(numbers)
-      @numbers = numbers
+   def initialize(table_numbers)
+      @numbers = [*table_numbers].sort
    end
 
    def outputTable()
-      if(@numbers < 1)
-         throw Error("Invalid input: #{@numbers}")
+      # Relies on sort when assigning to instance variable.
+      if(@numbers[0] < 2)
+         raise "Invalid input, not a prime number: #{@numbers[0]}"
       end
    end
 end
