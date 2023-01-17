@@ -35,8 +35,11 @@ class PrimeGenerator
    private
 
    def cleanInput(n)
-      if (!(n.to_s.eql? n) || n.to_i < 2)
-         raise "N must be an integer >= 2, but found #{n}"
+      if (!(n.to_s.eql? n.to_i.to_s))
+         raise "N must be an integer but found " + n.to_s
+      end
+      if (n.to_i < 1)
+         raise "N must be >= 1 but found #{n}"
       end
       return n.to_i
    end
@@ -47,6 +50,8 @@ class PrimeGenerator
    end
 
    def filterMultiplesFromSieve(prime, sieve)
+      # We don't want to check the number itself, nor any number *2 (as this will be even and therefore not prime)
+      # therefore, start with num * 3, and go in jumps of double the number.
       i = prime*3
       while i < sieve.length
          sieve[i] = @@NOT_PRIME

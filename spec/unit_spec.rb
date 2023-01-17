@@ -41,31 +41,45 @@ describe MultiplicationTable do
 end
 
 describe PrimeGenerator do
+  describe ".throw error on invalid input" do
+    context "given invalid input" do
+      primeGenerator = PrimeGenerator.new()
+      it "returns error for 1" do
+        expect { primeGenerator.generate(1.1) } .to raise_error("N must be an integer but found 1.1")
+      end
+      it "returns error for 0" do
+        expect { primeGenerator.generate(0) } .to raise_error("N must be >= 1 but found 0")
+      end
+      it "returns error for 2.5" do
+        expect { primeGenerator.generate(2.5) } .to raise_error("N must be an integer but found 2.5")
+      end
+      it "returns error for -1" do
+        expect { primeGenerator.generate(-1) } .to raise_error("N must be >= 1 but found -1")
+      end
+      it "returns error for -5" do
+        expect { primeGenerator.generate(-5) } .to raise_error("N must be >= 1 but found -5")
+      end
+    end
+  end
   describe ".generate sequence" do
+    primeGenerator = PrimeGenerator.new()
     context "given input of 2" do
       it "returns [2, 3]" do
-        primeGenerator = PrimeGenerator.new()
         expect(primeGenerator.generate(2)).to eq([2, 3])
       end
     end
     context "given input of 3" do
       it "returns [2, 3, 5]" do
-        primeGenerator = PrimeGenerator.new()
-        primeGenerator.loadPrimes()
         expect(primeGenerator.generate(3)).to eq([2, 3, 5])
       end
     end
     context "given input of 10" do
       it "returns [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]" do
-        primeGenerator = PrimeGenerator.new()
-        primeGenerator.loadPrimes()
         expect(primeGenerator.generate(10)).to eq([2, 3, 5, 7, 11, 13, 17, 19, 23, 29])
       end
     end
     context "given input of 100" do
       it "returns [2, 3, 5, 7, 11, 13, ... 541]" do
-        primeGenerator = PrimeGenerator.new()
-        primeGenerator.loadPrimes()
         expect(primeGenerator.generate(100)).to eq([2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71,
           73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173,
           179, 181, 191, 193, 197, 199, 211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281,
@@ -80,19 +94,19 @@ describe "Main" do
   describe ".generates prime multiplication table" do
     context "given invalid input" do
       it "returns error for 1" do
-        expect { runApp(1) } .to raise_error("N must be an integer >= 2, but found 1")
+        expect { runApp(1.1) } .to raise_error("N must be an integer but found 1.1")
       end
       it "returns error for 0" do
-        expect { runApp(0) } .to raise_error("N must be an integer >= 2, but found 0")
+        expect { runApp(0) } .to raise_error("N must be >= 1 but found 0")
       end
       it "returns error for 2.5" do
-        expect { runApp(2.5) } .to raise_error("N must be an integer >= 2, but found 2.5")
+        expect { runApp(2.5) } .to raise_error("N must be an integer but found 2.5")
       end
       it "returns error for -1" do
-        expect { runApp(-1) } .to raise_error("N must be an integer >= 2, but found -1")
+        expect { runApp(-1) } .to raise_error("N must be >= 1 but found -1")
       end
       it "returns error for -5" do
-        expect { runApp(-5) } .to raise_error("N must be an integer >= 2, but found -5")
+        expect { runApp(-5) } .to raise_error("N must be >= 1 but found -5")
       end
     end
   end

@@ -1,11 +1,16 @@
 ## How to run it
+Both from prime-number/
+From command line: ruby app/main.rb n    where n is replaced with whatever number of primes you want to generate
+To run tests: bundle exec rspec -fd
 
 
 ## What you’re pleased with
-
+* Separation of concerns. I'm happy that I removed any knowledge of primes from the multiplication table logic
+* Simplicity of the prime generator.
 
 ## What you would do with it if you had more time
-
+* Loading the generated primes into a file. I can't see much use for this application beyond encryption, and for that you would be using large numbers that would be computationally heavy to generate, so storing the generated numbers would be better.
+* Pagination of the generator for large values of N
 
 
 ## Task - Coding exercise - Prime tables
