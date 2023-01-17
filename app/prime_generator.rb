@@ -8,16 +8,6 @@ class PrimeGenerator
    # Pagination hasn't actually been done though ...
    @@max_batch_size = 1000
 
-   # Returns the updated primes array. Return can be ignored and is only
-   # included for testing purposes (currently).
-   def loadPrimes()
-      primeFile = File.open("resources/primes.data")
-      @primes = primeFile.read
-      primeFile.close
-
-      return @primes
-   end
-
    def generate(n)
       n = cleanInput(n)
       sieve_batch_size = getSieveBatchSize(n)
