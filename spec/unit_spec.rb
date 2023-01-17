@@ -46,7 +46,7 @@ describe MultiplicationTable do
 end
 
 describe PrimeGenerator do
-  describe ".generate sequence for n = 2" do
+  describe ".generate sequence" do
     context "given input of 2" do
       it "returns [2, 3]" do
         primeGenerator = PrimeGenerator.new()

@@ -22,7 +22,7 @@ class PrimeGenerator
       sieve_batch_size = getSieveBatchSize(n)
 
       # Initialize sieve. 2 is added by default.
-      sieve = [*3..sieve_batch_size]
+      sieve = Array.new(sieve_batch_size)
 
       prime_list = [2]
 
