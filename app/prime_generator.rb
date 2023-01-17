@@ -19,7 +19,7 @@ class PrimeGenerator
    end
 
    def generate(n)
-      checkInput(n)
+      n = cleanInput(n)
       sieve_batch_size = getSieveBatchSize(n)
 
       # Initialize sieve. 2 is added by default.
@@ -44,10 +44,11 @@ class PrimeGenerator
 
    private
 
-   def checkInput(n)
-      if (!(n.to_i.eql? n) || n < 2)
+   def cleanInput(n)
+      if (!(n.to_s.eql? n) || n.to_i < 2)
          raise "N must be an integer >= 2, but found #{n}"
       end
+      return n.to_i
    end
 
    def getSieveBatchSize(n)
